@@ -31,8 +31,8 @@ def make_scad(**kwargs):
     # default variables
     if True:
         kwargs["size"] = "oobb"
-        kwargs["width"] = 1
-        kwargs["height"] = 1
+        kwargs["width"] = 7
+        kwargs["height"] = 5
         kwargs["thickness"] = 3
         
     # project_variables
@@ -99,6 +99,35 @@ def get_base(thing, **kwargs):
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
     
+    #add cutouts for wires
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "n"
+    p3["shape"] = f"oobb_plate"        
+    p3["depth"] = depth
+    p3["width"] = 2
+    p3["height"] = 1    
+    #p3["m"] = "#"
+    pos1 = copy.deepcopy(pos)         
+    pos1[0] += 15
+    pos1[1] += 15
+    p3["pos"] = pos1
+    oobb_base.append_full(thing,**p3)
+
+    
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "n"
+    p3["shape"] = f"oobb_plate"        
+    p3["depth"] = depth
+    p3["width"] = 1
+    p3["height"] = 2    
+    #p3["m"] = "#"
+    pos1 = copy.deepcopy(pos)         
+    pos1[0] += 7.5
+    pos1[1] += 7.5
+    p3["pos"] = pos1
+    oobb_base.append_full(thing,**p3)
+
+
     #add holes seperate
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "p"
@@ -110,6 +139,45 @@ def get_base(thing, **kwargs):
     pos1 = copy.deepcopy(pos)         
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
+
+    #add lower corner cuteout cube
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "n"
+    p3["shape"] = f"oobb_cube"
+    ex = 3
+    w = 44 + ex
+    h = 56.5 + ex
+    d = depth
+    size = [w,h,d]
+    p3["size"] = size
+    pos1 = copy.deepcopy(pos)
+    pos1[0] += -30
+    pos1[1] += -8.75
+    pos1[2] = 0
+
+    p3["pos"] = pos1
+    #p3["m"] = "#"
+    oobb_base.append_full(thing,**p3)
+
+    #add countersunk screw holes
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "n"
+    p3["shape"] = f"oobb_screw_countersunk"
+    p3["radius_name"] = "m3"
+    p3["depth"] = depth
+    p3["both_holes"] = True
+    pos1 = copy.deepcopy(pos)
+    pos1[0] += -30
+    pos1[1] += 22.5
+    pos2 = copy.deepcopy(pos)
+    pos2[0] += 20
+    pos2[1] += 2.5
+    poss = [pos1,pos2]    
+    p3["pos"] = poss
+    #p3["m"] = "#"
+    p3["zz"] = "bottom"
+    oobb_base.append_full(thing,**p3)
+
 
     if prepare_print:
         #put into a rotation object
