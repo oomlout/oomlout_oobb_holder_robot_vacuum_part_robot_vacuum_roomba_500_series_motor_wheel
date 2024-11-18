@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        #kwargs["save_type"] = "all"
+        kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -31,9 +31,9 @@ def make_scad(**kwargs):
     # default variables
     if True:
         kwargs["size"] = "oobb"
-        kwargs["width"] = 7
+        kwargs["width"] = 6
         kwargs["height"] = 5
-        kwargs["thickness"] = 3
+        kwargs["thickness"] = 12
         
     # project_variables
     if True:
@@ -119,11 +119,11 @@ def get_base(thing, **kwargs):
     p3["shape"] = f"oobb_plate"        
     p3["depth"] = depth
     p3["width"] = 1
-    p3["height"] = 2    
+    p3["height"] = 3    
     #p3["m"] = "#"
     pos1 = copy.deepcopy(pos)         
     pos1[0] += 7.5
-    pos1[1] += 7.5
+    pos1[1] += 0
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
 
@@ -140,13 +140,13 @@ def get_base(thing, **kwargs):
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
 
-    #add lower corner cuteout cube
+    #add wheel side cuteout cube
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "n"
     p3["shape"] = f"oobb_cube"
     ex = 3
-    w = 44 + ex
-    h = 56.5 + ex
+    w = 45.5 + ex
+    h = 55 + ex
     d = depth
     size = [w,h,d]
     p3["size"] = size
@@ -154,24 +154,49 @@ def get_base(thing, **kwargs):
     pos1[0] += -30
     pos1[1] += -8.75
     pos1[2] = 0
-
     p3["pos"] = pos1
     #p3["m"] = "#"
     oobb_base.append_full(thing,**p3)
 
-    #add countersunk screw holes
+
+    #add motor side cuteout cube
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "n"
-    p3["shape"] = f"oobb_screw_countersunk"
+    p3["shape"] = f"oobb_cube"
+    th = 6
+    ex = 3
+    w = 32.5 + ex
+    h = 37 + ex
+    d = th
+    size = [w,h,d]
+    p3["size"] = size
+    pos1 = copy.deepcopy(pos)
+    pos1[0] += 9.75
+    pos1[1] += -0.5
+    pos1[2] += 0
+    p3["pos"] = pos1
+    #p3["m"] = "#"
+    oobb_base.append_full(thing,**p3)
+
+
+
+    #add nut holes
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "n"
+    p3["shape"] = f"oobb_nut"
     p3["radius_name"] = "m3"
     p3["depth"] = depth
     p3["both_holes"] = True
+    p3["clearance"] = "top"
+    p3["hole"] = True
     pos1 = copy.deepcopy(pos)
     pos1[0] += -30
     pos1[1] += 22.5
+    pos1[2] += 3
     pos2 = copy.deepcopy(pos)
     pos2[0] += 20
     pos2[1] += 2.5
+    pos2[2] += depth - 3
     poss = [pos1,pos2]    
     p3["pos"] = poss
     #p3["m"] = "#"

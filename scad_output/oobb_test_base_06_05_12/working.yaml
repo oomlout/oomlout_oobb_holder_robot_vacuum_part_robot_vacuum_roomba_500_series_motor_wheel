@@ -12,8 +12,8 @@ kwargs:
   - 3dpr
   overwrite: true
   save_type: all
-  thickness: 3
+  thickness: 12
   type: test_base
-  width: 7
+  width: 6
 name: base
 project_name: test
