@@ -228,12 +228,53 @@ def get_base(thing, **kwargs):
         pos1[2] += 3        
         pos2[0] += -20
         pos2[1] += 2.5
+        
+    position_screw_long = copy.deepcopy(pos1)
+    position_screw_short = copy.deepcopy(pos2)
     pos2[2] += depth - 3
     poss = [pos1,pos2]    
     p3["pos"] = poss
     #p3["m"] = "#"
     p3["zz"] = "bottom"
     oobb_base.append_full(thing,**p3)
+    
+    #add standoff to help with nut crushing
+    #short screw
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "positive_positive"
+    p3["shape"] = f"oobb_cylinder"
+    p3["radius"] = 6/2
+    p3["depth"] = 15
+    pos1 = copy.deepcopy(position_screw_short)
+    pos1[2] += depth - 3
+    p3["pos"] = pos1
+    #p3["m"] = "#"
+    p3["zz"] = "top"
+    oobb_base.append_full(thing,**p3)
+
+    p4 = copy.deepcopy(p3)
+    p4["type"] = "negative_negative"
+    p4.pop("depth","")
+    p4.pop("radius","")
+    p4["shape"] = f"oobb_hole"
+    p4["radius_name"] = "m3"
+    #p4["m"] = "#"
+    oobb_base.append_full(thing,**p4)
+    #long screw
+    p3 = copy.deepcopy(kwargs)
+    p3["type"] = "p"
+    p3["shape"] = f"oobb_cylinder"
+    p3["radius"] = 8/2
+    p3["depth"] = 21
+    pos1 = copy.deepcopy(position_screw_long)
+    pos1[2] += 0
+    p3["pos"] = pos1
+    #p3["m"] = "#"
+    p3["zz"] = "top"
+    oobb_base.append_full(thing,**p3)
+
+
+
 
 
     if prepare_print:
