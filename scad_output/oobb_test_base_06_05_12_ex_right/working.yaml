@@ -7,6 +7,7 @@ full_shift:
 - 0
 - 0
 kwargs:
+  extra: right
   height: 5
   modes:
   - 3dpr

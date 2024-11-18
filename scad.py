@@ -49,9 +49,16 @@ def make_scad(**kwargs):
         
         part = copy.deepcopy(part_default)
         p3 = copy.deepcopy(kwargs)
+        p3["extra"] = "left"
         #p3["thickness"] = 6
         part["kwargs"] = p3
         part["name"] = "base"
+        parts.append(part)
+
+        part = copy.deepcopy(part)
+        p3 = copy.deepcopy(part["kwargs"])
+        p3["extra"] = "right"
+        part["kwargs"] = p3
         parts.append(part)
 
         
@@ -85,6 +92,7 @@ def get_base(thing, **kwargs):
     depth = kwargs.get("thickness", 3)                    
     rot = kwargs.get("rot", [0, 0, 0])
     pos = kwargs.get("pos", [0, 0, 0])
+    extra = kwargs.get("extra", "default")
     #pos = copy.deepcopy(pos)
     #pos[2] += -20
 
@@ -107,9 +115,13 @@ def get_base(thing, **kwargs):
     p3["width"] = 2
     p3["height"] = 1    
     #p3["m"] = "#"
-    pos1 = copy.deepcopy(pos)         
-    pos1[0] += 15
-    pos1[1] += 15
+    pos1 = copy.deepcopy(pos)  
+    if extra == "left":       
+        pos1[0] += 15
+        pos1[1] += 15
+    if extra == "right":
+        pos1[0] += -7.5
+        pos1[1] += 15
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
 
@@ -121,9 +133,14 @@ def get_base(thing, **kwargs):
     p3["width"] = 1
     p3["height"] = 3    
     #p3["m"] = "#"
-    pos1 = copy.deepcopy(pos)         
-    pos1[0] += 7.5
-    pos1[1] += 0
+    pos1 = copy.deepcopy(pos)    
+    if extra == "left":     
+        pos1[0] += 7.5
+        pos1[1] += 0
+    if extra == "right":
+        pos1[0] += 0
+        pos1[1] += 0
+
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
 
@@ -151,9 +168,12 @@ def get_base(thing, **kwargs):
     size = [w,h,d]
     p3["size"] = size
     pos1 = copy.deepcopy(pos)
-    pos1[0] += -30
-    pos1[1] += -8.75
-    pos1[2] = 0
+    if extra == "left":
+        pos1[0] += -29.25
+        pos1[1] += -9.5
+    if extra == "right":
+        pos1[0] += 29.25
+        pos1[1] += -9.5
     p3["pos"] = pos1
     #p3["m"] = "#"
     oobb_base.append_full(thing,**p3)
@@ -171,9 +191,12 @@ def get_base(thing, **kwargs):
     size = [w,h,d]
     p3["size"] = size
     pos1 = copy.deepcopy(pos)
-    pos1[0] += 9.75
-    pos1[1] += -0.5
-    pos1[2] += 0
+    if extra == "left":
+        pos1[0] += 9.75
+        pos1[1] += -0.5
+    if extra == "right":
+        pos1[0] += -9.75
+        pos1[1] += -0.5
     p3["pos"] = pos1
     #p3["m"] = "#"
     oobb_base.append_full(thing,**p3)
@@ -188,14 +211,23 @@ def get_base(thing, **kwargs):
     p3["depth"] = depth
     p3["both_holes"] = True
     p3["clearance"] = "top"
+    p3["overhang"] = True
     p3["hole"] = True
     pos1 = copy.deepcopy(pos)
-    pos1[0] += -30
-    pos1[1] += 22.5
-    pos1[2] += 3
     pos2 = copy.deepcopy(pos)
-    pos2[0] += 20
-    pos2[1] += 2.5
+    if extra == "left":
+        pos1[0] += -30
+        pos1[1] += 22.5
+        pos1[2] += 3
+        
+        pos2[0] += 20
+        pos2[1] += 2.5
+    if extra == "right":
+        pos1[0] += 30
+        pos1[1] += 22.5
+        pos1[2] += 3        
+        pos2[0] += -20
+        pos2[1] += 2.5
     pos2[2] += depth - 3
     poss = [pos1,pos2]    
     p3["pos"] = poss
