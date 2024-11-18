@@ -120,7 +120,7 @@ def get_base(thing, **kwargs):
         pos1[0] += 15
         pos1[1] += 15
     if extra == "right":
-        pos1[0] += -7.5
+        pos1[0] += -15
         pos1[1] += 15
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
@@ -131,15 +131,14 @@ def get_base(thing, **kwargs):
     p3["shape"] = f"oobb_plate"        
     p3["depth"] = depth
     p3["width"] = 1
-    p3["height"] = 3    
+    p3["height"] = 1.5    
     #p3["m"] = "#"
     pos1 = copy.deepcopy(pos)    
+    pos1[1] += -11.25
     if extra == "left":     
-        pos1[0] += 7.5
-        pos1[1] += 0
+        pos1[0] += 0        
     if extra == "right":
         pos1[0] += 0
-        pos1[1] += 0
 
     p3["pos"] = pos1
     oobb_base.append_full(thing,**p3)
@@ -168,12 +167,11 @@ def get_base(thing, **kwargs):
     size = [w,h,d]
     p3["size"] = size
     pos1 = copy.deepcopy(pos)
+    pos1[1] += -8
     if extra == "left":
-        pos1[0] += -29.25
-        pos1[1] += -9.5
+        pos1[0] += -29.25        
     if extra == "right":
-        pos1[0] += 29.25
-        pos1[1] += -9.5
+        pos1[0] += 29.25        
     p3["pos"] = pos1
     #p3["m"] = "#"
     oobb_base.append_full(thing,**p3)
@@ -185,18 +183,17 @@ def get_base(thing, **kwargs):
     p3["shape"] = f"oobb_cube"
     th = 6
     ex = 3
-    w = 32.5 + ex
+    w = 35.5 + ex
     h = 37 + ex
     d = th
     size = [w,h,d]
     p3["size"] = size
     pos1 = copy.deepcopy(pos)
+    pos1[1] += 25
     if extra == "left":
-        pos1[0] += 9.75
-        pos1[1] += -0.5
+        pos1[0] += 9.75        
     if extra == "right":
         pos1[0] += -9.75
-        pos1[1] += -0.5
     p3["pos"] = pos1
     #p3["m"] = "#"
     oobb_base.append_full(thing,**p3)
@@ -260,12 +257,13 @@ def get_base(thing, **kwargs):
     p4["radius_name"] = "m3"
     #p4["m"] = "#"
     oobb_base.append_full(thing,**p4)
+    
     #long screw
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "p"
     p3["shape"] = f"oobb_cylinder"
     p3["radius"] = 8/2
-    p3["depth"] = 21
+    p3["depth"] = 21+5
     pos1 = copy.deepcopy(position_screw_long)
     pos1[2] += 0
     p3["pos"] = pos1
