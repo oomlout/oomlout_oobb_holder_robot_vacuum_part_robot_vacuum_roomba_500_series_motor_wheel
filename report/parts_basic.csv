@@ -1,0 +1,6 @@
+id,short_code,name,classification,type,size,color,description_main,description_extra,manufacturer,part_number
+hardware_nut_m3,nu3,Hardware Nut M3,hardware,nut,m3,,,,,
+hardware_screw_socket_cap_m3_black_30_mm_length_hex_head,sc3b30h,Hardware Screw Socket Cap M3 Black 30 mm Length Hex Head,hardware,screw_socket_cap,m3,black,30_mm_length,hex_head,,
+hardware_screw_socket_cap_m3_black_35_mm_length_hex_head,sc3b35h,Hardware Screw Socket Cap M3 Black 35 mm Length Hex Head,hardware,screw_socket_cap,m3,black,35_mm_length,hex_head,,
+robot_vacuum_part_robot_vacuum_roomba_500_series_motor_wheel_left_side,,Robot Vacuum Part Robot Vacuum Roomba 500 Series Motor Wheel Left Side,robot_vacuum,part,robot_vacuum_roomba_500_series,motor,wheel,left_side,,
+robot_vacuum_part_robot_vacuum_roomba_500_series_motor_wheel_right_side,,Robot Vacuum Part Robot Vacuum Roomba 500 Series Motor Wheel Right Side,robot_vacuum,part,robot_vacuum_roomba_500_series,motor,wheel,right_side,,

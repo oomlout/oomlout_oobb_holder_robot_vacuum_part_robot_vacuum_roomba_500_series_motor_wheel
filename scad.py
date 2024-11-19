@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        kwargs["save_type"] = "all"
+        #kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -214,17 +214,20 @@ def get_base(thing, **kwargs):
     p3["hole"] = True
     pos1 = copy.deepcopy(pos)
     pos2 = copy.deepcopy(pos)
+    pos1[2] += 3
+    pos2[2] += depth - 3
     if extra == "left":
         pos1[0] += -30
         pos1[1] += 22.5
-        #pos1[2] += 3
+        
         
         pos2[0] += 21
         pos2[1] += 2.5
+
     if extra == "right":
         pos1[0] += 30
         pos1[1] += 22.5
-        #pos1[2] += 3        
+        
         pos2[0] += -20
         pos2[1] += 2.5
         
@@ -243,9 +246,10 @@ def get_base(thing, **kwargs):
     p3["type"] = "positive_positive"
     p3["shape"] = f"oobb_cylinder"
     p3["radius"] = 6/2
-    p3["depth"] = 15
+    dep = 15
+    p3["depth"] = dep
     pos1 = copy.deepcopy(position_screw_short)
-    pos1[2] += depth - 3
+    pos1[2] += -3
     p3["pos"] = pos1
     #p3["m"] = "#"
     p3["zz"] = "top"
@@ -265,11 +269,11 @@ def get_base(thing, **kwargs):
     p3["type"] = "p"
     p3["shape"] = f"oobb_cylinder"
     p3["radius"] = 8/2
-    p3["depth"] = 21+5
+    p3["depth"] = 21
     pos1 = copy.deepcopy(position_screw_long)
     pos1[2] += 0
     p3["pos"] = pos1
-    p3["m"] = "#"
+    #p3["m"] = "#"
     p3["zz"] = "top"
     oobb_base.append_full(thing,**p3)
 

@@ -1,0 +1,6 @@
+* [part](part)
+  * [robot_vacuum_roomba_500_series](part/robot_vacuum_roomba_500_series)
+    * [motor](part/robot_vacuum_roomba_500_series/motor)
+      * [wheel](part/robot_vacuum_roomba_500_series/motor/wheel)
+        * [left_side](part/robot_vacuum_roomba_500_series/motor/wheel/left_side)
+        * [right_side](part/robot_vacuum_roomba_500_series/motor/wheel/right_side)
