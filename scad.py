@@ -163,12 +163,12 @@ def get_base(thing, **kwargs):
     ex = 1
     #ex = 3
     w = 45.5 + ex
-    h = 55 + ex
+    h = 57 + ex
     d = depth
     size = [w,h,d]
     p3["size"] = size
     pos1 = copy.deepcopy(pos)
-    pos1[1] += -8
+    pos1[1] += -9
     if extra == "left":
         pos1[0] += -29.25        
     if extra == "right":
