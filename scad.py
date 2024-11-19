@@ -160,7 +160,8 @@ def get_base(thing, **kwargs):
     p3 = copy.deepcopy(kwargs)
     p3["type"] = "n"
     p3["shape"] = f"oobb_cube"
-    ex = 3
+    ex = 1
+    #ex = 3
     w = 45.5 + ex
     h = 55 + ex
     d = depth
@@ -182,7 +183,8 @@ def get_base(thing, **kwargs):
     p3["type"] = "n"
     p3["shape"] = f"oobb_cube"
     th = 6
-    ex = 3
+    ex = 1
+    #ex = 3
     w = 35.5 + ex
     h = 37 + ex
     d = th
@@ -215,20 +217,20 @@ def get_base(thing, **kwargs):
     if extra == "left":
         pos1[0] += -30
         pos1[1] += 22.5
-        pos1[2] += 3
+        #pos1[2] += 3
         
-        pos2[0] += 20
+        pos2[0] += 21
         pos2[1] += 2.5
     if extra == "right":
         pos1[0] += 30
         pos1[1] += 22.5
-        pos1[2] += 3        
+        #pos1[2] += 3        
         pos2[0] += -20
         pos2[1] += 2.5
         
     position_screw_long = copy.deepcopy(pos1)
     position_screw_short = copy.deepcopy(pos2)
-    pos2[2] += depth - 3
+    
     poss = [pos1,pos2]    
     p3["pos"] = poss
     #p3["m"] = "#"
@@ -267,7 +269,7 @@ def get_base(thing, **kwargs):
     pos1 = copy.deepcopy(position_screw_long)
     pos1[2] += 0
     p3["pos"] = pos1
-    #p3["m"] = "#"
+    p3["m"] = "#"
     p3["zz"] = "top"
     oobb_base.append_full(thing,**p3)
 
