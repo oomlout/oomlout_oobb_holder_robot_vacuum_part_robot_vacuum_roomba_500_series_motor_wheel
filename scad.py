@@ -17,7 +17,7 @@ def make_scad(**kwargs):
         #filter = "test"
 
         kwargs["save_type"] = "none"
-        #kwargs["save_type"] = "all"
+        kwargs["save_type"] = "all"
         
         navigation = False
         #navigation = True    
@@ -214,7 +214,8 @@ def get_base(thing, **kwargs):
     p3["hole"] = True
     pos1 = copy.deepcopy(pos)
     pos2 = copy.deepcopy(pos)
-    pos1[2] += 3
+    shift_z_long_screw = 3
+    pos1[2] += shift_z_long_screw
     pos2[2] += depth - 3
     if extra == "left":
         pos1[0] += -30
@@ -271,9 +272,9 @@ def get_base(thing, **kwargs):
     p3["radius"] = 8/2
     p3["depth"] = 21
     pos1 = copy.deepcopy(position_screw_long)
-    pos1[2] += 0
+    pos1[2] += -shift_z_long_screw
     p3["pos"] = pos1
-    #p3["m"] = "#"
+    p3["m"] = "#"
     p3["zz"] = "top"
     oobb_base.append_full(thing,**p3)
 
