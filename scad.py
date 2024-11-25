@@ -24,8 +24,8 @@ def make_scad(**kwargs):
 
         kwargs["overwrite"] = True
         
-        #kwargs["modes"] = ["3dpr", "laser", "true"]
-        kwargs["modes"] = ["3dpr"]
+        kwargs["modes"] = ["3dpr", "laser", "true"]
+        #kwargs["modes"] = ["3dpr"]
         #kwargs["modes"] = ["laser"]
 
     # default variables
@@ -229,7 +229,7 @@ def get_base(thing, **kwargs):
         pos1[0] += 30
         pos1[1] += 22.5
         
-        pos2[0] += -20
+        pos2[0] += -21
         pos2[1] += 2.5
         
     position_screw_long = copy.deepcopy(pos1)
