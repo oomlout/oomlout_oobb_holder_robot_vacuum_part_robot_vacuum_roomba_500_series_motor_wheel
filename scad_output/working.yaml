@@ -1,0 +1,51 @@
+parts:
+  oobb_test_base_06_05_12_ex_left:
+    full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: left
+      height: 5
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 12
+      type: test_base
+      width: 6
+    name: base
+    project_name: test
+  oobb_test_base_06_05_12_ex_right:
+    full_rotations:
+    - 0
+    - 0
+    - 0
+    full_shift:
+    - 0
+    - 0
+    - 0
+    kwargs:
+      extra: right
+      height: 5
+      modes:
+      - 3dpr
+      - laser
+      - 'true'
+      overwrite: true
+      save_type: all
+      thickness: 12
+      type: test_base
+      width: 6
+    name: base
+    project_name: test
+project_id: oomlout_oobb_holder_robot_vacuum_part_robot_vacuum_roomba_500_series_motor_wheel
+project_name: Oomlout oobb holder robot vacuum part robot vacuum roomba 500 series
+  motor wheel
+project_repo: https://github.com/oomlout/oomlout_oobb_holder_robot_vacuum_part_robot_vacuum_roomba_500_series_motor_wheel

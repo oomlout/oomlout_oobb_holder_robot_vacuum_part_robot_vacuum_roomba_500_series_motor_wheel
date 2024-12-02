@@ -2,6 +2,6 @@ project_id: oomlout_oobb_holder_robot_vacuum_part_robot_vacuum_roomba_500_series
 project_name: Oomlout Oobb Holder Robot Vacuum Part Robot Vacuum Roomba 500 Series
   Motor Wheel Left Side
 project_repo: https://github.com/oomlout/oomlout_oobb_holder_robot_vacuum_part_robot_vacuum_roomba_500_series_motor_wheel_left_side
-production_format:
-  oolc_1:
-    file_location: source_files/oolc_1.cdr
+#production_format:
+#  oolc_1:
+#    file_location: source_files/oolc_1.cdr
